@@ -18,11 +18,11 @@ pipeline {
                 sh 'sudo rm -rf *;sudo git clone https://github.com/thippeswamy24/eks.git /home/ec2-user/newfolder'
             }
         }
-        stage('tfsvars create') {
-            steps {
-                sh 'sudo cp -rf /home/ec2-user/vars.tf /home/ec2-user/newfolder'
-            }
-        }
+       // stage('tfsvars create') {
+         //   steps {
+            //    sh 'sudo cp -rf /home/ec2-user/vars.tf /home/ec2-user/newfolder'
+          //  }
+      //  }
         stage('terraform init') {
             steps {
                 sh 'sudo /home/ec2-user/terraform init /home/ec2-user/newfolder'
@@ -33,11 +33,11 @@ pipeline {
                 sh 'sudo ls /home/ec2-user/newfolder; sudo /home/ec2-user/terraform plan /home/ec2-user/newfolder'
             }
         }
-        stage('terraform apply') {
-            steps {
-                sh 'sudo /home/ec2-user/terraform apply --auto-approve /home/ec2-user/newfolder'
-            }
-        }
+       // stage('terraform apply') {
+       //     steps {
+          //      sh 'sudo /home/ec2-user/terraform apply --auto-approve /home/ec2-user/newfolder'
+          //  }
+       // }
         stage('terraform ended') {
             steps {
                 sh 'echo "Ended....!!"'
