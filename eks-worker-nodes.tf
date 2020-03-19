@@ -6,7 +6,6 @@
 
 resource "aws_iam_role" "demo-node" {
   name = "terraform-eks-demo-node"
-   key_name   = "new19"
   assume_role_policy = <<POLICY
 {
   "Version": "2012-10-17",
